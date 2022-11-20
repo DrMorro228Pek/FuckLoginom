@@ -41,18 +41,19 @@ import numpy as np
 # print(ans_3)
 
 #Задание 2
-#pd.set_option("display.max_rows", None)
-# df_4 = pd.read_csv('3.txt', sep=';', encoding="utf-8")
-# df_4['Квартал'] = pd.to_datetime(df_4['Квартал'], format="%d.%m.%Y")
-# df_4.sort_values(by='Квартал')
-#
-# df_4_1 = df_4.groupby('Код Клиента')['Класс'].agg(['first', 'last']).reset_index()
-# print(df_4_1)
+pd.set_option("display.max_rows", None)
+df_4 = pd.read_csv('3.txt', sep=';', encoding="utf-8")
+df_4['Квартал'] = pd.to_datetime(df_4['Квартал'], format="%d.%m.%Y")
+df_4.sort_values(by='Квартал')
+
+df_4_1 = df_4.groupby('Код Клиента')['Класс'].agg(['first', 'last']).reset_index()
+df_4_1.rename(columns={'first': '2016', 'last': '2017'}, inplace=True)
+print(df_4_1)
 
 #Задание 3
-df_5 = pd.read_csv('4.txt', sep=';', encoding="utf-8")
-df_5 = df_5.groupby('КЛИЕНТ_КОД', as_index=False).agg(['min', 'max', 'mean', 'sum']).reset_index()
-
-
-pd.set_option('display.max_columns', None)
-print(df_5)
+# df_5 = pd.read_csv('4.txt', sep=';', encoding="utf-8")
+# df_5 = df_5.groupby('КЛИЕНТ_КОД', as_index=False).agg(['min', 'max', 'mean', 'sum']).reset_index()
+#
+#
+# pd.set_option('display.max_columns', None)
+# print(df_5)
